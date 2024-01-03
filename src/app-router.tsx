@@ -4,10 +4,11 @@ import HomePage from "./pages/HomePage/HomePage";
 const AppRoutes: React.FC = () => (
         <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/logIn" element={<HomePage />} />
+            {/* <Route path="/logIn" element={<HomePage />} />
             <Route path="/personaInformation" element={<HomePage />} >
                 <Route path="/accountSettings" element={<HomePage />} />
                 <Route path="/historicalOrders" element={<HomePage />} />
+                <Route path="/notify" element={<HomePage />} />
             </Route>
             <Route path="/productBrowsing" element={<HomePage />}>
                 <Route path="/productDetails" element={<HomePage />} />
@@ -18,7 +19,7 @@ const AppRoutes: React.FC = () => (
                 <Route path="/pickupPerson" element={<HomePage />} />
                 <Route path="/payment" element={<HomePage />} />
                 <Route path="/completed" element={<HomePage />} />
-            </Route>
+            </Route> */}
             
         </Routes>
 );
