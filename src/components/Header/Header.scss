@@ -1,47 +1,4 @@
 .Header {
-    height: 163px;
-    background-color: #FFF7CA;
-
-    .container {
-        display: flex;
-        align-items: center;
-
-        .logo {
-            margin: 40px;
-            font-size: 50px;
-            font-weight: 700;
-
-            a {
-                text-decoration: none;
-                color: inherit;
-            }
-        }
-
-        .search {
-            height: 54.51578px;
-            width: 60%;
-            background-color: #D9D9D9;
-            border: transparent;
-            border-radius: 20px;
-            font-size: 20px;
-
-            font-weight: 400;
-            line-height: 54.51578px;
-            vertical-align: middle;
-            padding-left: 21px;
-        }
-
-        .icon {
-            margin-left: auto;
-            display: flex;
-
-            .svg-icon {
-                margin-left: 35px;
-                height: 80px;
-                width: 80px;
-                cursor: pointer;
-            }
-        }
-    }
+   
 
 }
