@@ -12,6 +12,7 @@ const Header: FC<HeaderProps> = () => (
       sx={{
         display: 'flex',
         alignItems: 'center',
+        height: '163px',
         justifyContent: 'space-between', // Center content horizontally        
       }}
     >
