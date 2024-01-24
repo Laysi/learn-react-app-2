@@ -38,12 +38,12 @@ export function generateProductData(numProducts: number): Product[] {
 const Dashboard: FC<ProductProps> = () => {
   let data =generateProductData(30);
   return (
-    <Box data-testid='Dashboard'>
+    <Box data-testid='Dashboard' >
       <Header/>
-      <Container>
+      <Container >
         <Grid container spacing={3}>
           {data.map((item,index) => (
-            <Grid item xs={12} sm={4} md={2} key={data[1].id}>
+            <Grid item xs={12} sm={4} md={2} key={data[1].id}  >
               <ShopItem item={data[index]}/>
             </Grid>
           ))}
@@ -56,7 +56,7 @@ const Dashboard: FC<ProductProps> = () => {
 
 
 const ShopItem: FC<{item:Product}> = (props) => (
-  <Box sx={{bgcolor:'#cfebfc'}} >
+  <Box sx={{bgcolor: '#cfebfc', margin: 1, display: 'flex', flexDirection: 'column'}} >
       <img src={props.item.coverUrl} alt={props.item.name} />
       {props.item.name}<br/>
       {props.item.description}
