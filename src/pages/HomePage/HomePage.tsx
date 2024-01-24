@@ -5,7 +5,7 @@ interface HomePageProps {}
 
 const HomePage: FC<HomePageProps> = () => (
   <div className="HomePage" data-testid="HomePage">
-    <Dashboard />
+    HomePage
   </div>
 );
 

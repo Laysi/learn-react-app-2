@@ -7,7 +7,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 interface HeaderProps {}
 
 const Header: FC<HeaderProps> = () => (
-  <AppBar sx={{backgroundColor:'#FFF7CA'}}>
+  <AppBar sx={{backgroundColor:'#FFF7CA'}} position="static" >
     <Toolbar
       sx={{
         display: 'flex',
@@ -40,15 +40,15 @@ const Header: FC<HeaderProps> = () => (
           paddingLeft: '21px',
         }}
       />
-      <Box sx={{ marginLeft: 'auto', display: 'flex' }}>
-        <IconButton  component={Link} to="/shoppingCart">
-          <ShoppingCartOutlinedIcon sx={{marginLeft: '35px',height: '80px',width: '80px',color:'black'}}/>
+      <Box sx={{ marginLeft: 'auto', display: 'flex' ,alignItems:'center'}}>
+        <IconButton  component={Link} to="/shoppingCart" sx={{ml:'35px'}}>
+          <ShoppingCartOutlinedIcon sx={{color:'black'}} fontSize='large'/>
         </IconButton>
-        <IconButton  component={Link} to="/personaInformation">
-          <AccountCircleIcon sx={{marginLeft: '35px',height: '80px',width: '80px',color:'black'}}/>
+        <IconButton  component={Link} to="/personaInformation" sx={{ml:'35px'}}>
+          <AccountCircleIcon sx={{color:'black'}} fontSize='large'/>
         </IconButton>
-        <IconButton  component={Link} to="/personaInformation/notify">
-          <NotificationsIcon sx={{marginLeft: '35px',height: '80px',width: '80px',color:'black'}}/>
+        <IconButton  component={Link} to="/personaInformation/notify" sx={{ml:'35px'}}>
+          <NotificationsIcon sx={{color:'black'}} fontSize='large'/>
         </IconButton>
       </Box>
     </Toolbar>
