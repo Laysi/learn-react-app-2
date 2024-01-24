@@ -1,32 +1,30 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import {  Link, Toolbar, Box ,Link as MuiLink} from '@mui/material';
+import {  Link, Box ,Link as MuiLink} from '@mui/material';
 
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
   return (
     
-    <Toolbar
-      component="footer"
+    <Box
+      
       sx={{
-        position: 'absolute',
+        position: 'relative',
         display: 'flex',
-        left: 0,
+        
         bottom: 0,
         textAlign: 'center',
         backgroundColor: 'gray',
         width: '100%',
-        height: '20px',
-        
+        height: '50px',
+        alignItems: 'end',
       }}
   
     >
       <Box
         sx={{
-          position: 'absolute',
-          left: 0,
-          bottom: 5,
+          
         }}
       >
      
@@ -69,7 +67,7 @@ const Footer: React.FC<FooterProps> = () => {
           </Link>
         
       </Box>
-    </Toolbar>
+    </Box>
   );
 };
 
