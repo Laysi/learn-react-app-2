@@ -69,7 +69,7 @@ const ShopItem: FC<{ item: Product }> = (props) => (
         alt={props.item.name}
       />
       <CardContent>
-        <Typography gutterBottom  component="div">
+        <Typography gutterBottom  component="div" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
         {props.item.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
