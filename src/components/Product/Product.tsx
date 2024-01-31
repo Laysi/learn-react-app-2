@@ -1,7 +1,11 @@
 import React, { FC } from 'react';
 import './Product.scss';
 import { Grid, AppBar, Toolbar, IconButton, InputBase, Box, Link as MuiLink, Container } from '@mui/material';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 export interface Product {
   id: number;
@@ -51,18 +55,37 @@ const ProductList: FC<ProductProps> = () => {
 
 
 const ShopItem: FC<{ item: Product }> = (props) => (
-  <Box sx={{ bgcolor: '#cfebfc', margin: 1, display: 'flex', flexDirection: 'column' }} >
-    <img src={props.item.coverUrl} alt={props.item.name} />
-    {props.item.name}<br />
-    {props.item.description}
-  </Box>
+  // <Box sx={{ bgcolor: '#cfebfc', margin: 1, display: 'flex', flexDirection: 'column' }} >
+  //   <img src={props.item.coverUrl} alt={props.item.name} />
+  //   {props.item.name}<br />
+  //   {props.item.description}
+  // </Box>
+
+  <Card sx={{ bgcolor: '#cfebfc', margin: 1, display: 'flex', flexDirection: 'column' }}>
+    <CardActionArea>
+      <CardMedia
+        component="img"
+        image={props.item.coverUrl}
+        alt={props.item.name}
+      />
+      <CardContent>
+        <Typography gutterBottom  component="div">
+        {props.item.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        {props.item.description}
+        </Typography>
+      </CardContent>
+    </CardActionArea>
+  </Card>
+
 )
 
 
 interface ProductProps { }
 
 const Product: FC<ProductProps> = () => (
-  <ProductList/>
+  <ProductList />
 );
 
 export default Product;
