@@ -13,11 +13,12 @@ import PickupPage from "./pages/PickupPage/PickupPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import CompletedPage from "./pages/CompletedPage/CompletedPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import PersonaInformationPage from "./pages/PersonaInformationPage/PersonaInformationPage";
 const AppRoutes: React.FC = () => (
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/logIn" element={<LogInPage />} />
-            <Route path="/personaInformation" >
+            <Route path="/personaInformation" element={<PersonaInformationPage/>}>
                 <Route path="accountSettings" element={<AccountSettingsPage />} />
                 <Route path="historicalOrders" element={<HistoricalOrdersPage />} />
                 <Route path="notify" element={<NotifyPage />} />
