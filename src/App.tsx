@@ -1,10 +1,12 @@
 import './App.css';
 import AppRouters from './app-router';
-
+import MainLayout from './layout/MainLayout/MainLayout';
 function App() {
   return (
     <div className="App">
-      <AppRouters />
+      <MainLayout >
+        <AppRouters />
+      </MainLayout>
     </div>
   );
 }
