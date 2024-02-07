@@ -1,11 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
 
+interface MainLayoutProps {
+  children?: ReactNode;
+}
 
-interface MainLayoutProps {}
-
-const MainLayout: FC<MainLayoutProps> = () => (
-  <div data-testid="MainLayout">
-    MainLayout Component
+const MainLayout: FC<MainLayoutProps> = ({ children }) => (
+  <div>
+    <Header />
+    {children}
+    <Footer />
   </div>
 );
 

@@ -1,17 +1,14 @@
-import React, { FC, ReactNode } from 'react';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import MainLayout from './MainLayout';
 
-interface MainLayoutProps {
-  children?: ReactNode;
-}
+describe('<MainLayout />', () => {
+  test('it should mount', () => {
+    render(<MainLayout />);
+    
+    const mainLayout = screen.getByTestId('MainLayout');
 
-const MainLayout: FC<MainLayoutProps> = ({ children }) => (
-  <div>
-    <Header />
-    {children}
-    <Footer />
-  </div>
-);
-
-export default MainLayout;
+    expect(mainLayout).toBeInTheDocument();
+  });
+});
