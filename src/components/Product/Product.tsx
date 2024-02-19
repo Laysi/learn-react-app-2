@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Product.scss';
 import { Grid, AppBar, Toolbar, IconButton, InputBase, Box, Link as MuiLink, Container } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -37,15 +38,16 @@ export function generateProductData(numProducts: number): Product[] {
   }
   return products;
 }
+interface ProductProps { }
 
-const ProductList: FC<ProductProps> = () => {
+const Product: FC<ProductProps> = () => {
   let data = generateProductData(30);
   return (
     <Container >
       <Grid container spacing={3}>
-        {data.map((item, index) => (
-          <Grid item xs={12} sm={4} md={2} key={data[1].id}  >
-            <ShopItem item={data[index]} />
+        {data.map((item) => (
+          <Grid item xs={12} sm={4} md={2} key={item.id}  >
+            <ShopItem item={item} />
           </Grid>
         ))}
       </Grid>
@@ -54,14 +56,10 @@ const ProductList: FC<ProductProps> = () => {
 }
 
 
-const ShopItem: FC<{ item: Product }> = (props) => (
-  // <Box sx={{ bgcolor: '#cfebfc', margin: 1, display: 'flex', flexDirection: 'column' }} >
-  //   <img src={props.item.coverUrl} alt={props.item.name} />
-  //   {props.item.name}<br />
-  //   {props.item.description}
-  // </Box>
-
-  <Card sx={{ bgcolor: '#cfebfc', margin: 1, display: 'flex', flexDirection: 'column' }}>
+const ShopItem: FC<{ item: Product }> = (props) => {
+  const navigate = useNavigate();
+  return(
+  <Card sx={{  margin: 1, display: 'flex', flexDirection: 'column' }} onClick={()=>navigate(`/productDetails/${props.item.id}`)}>
     <CardActionArea>
       <CardMedia
         component="img"
@@ -80,12 +78,8 @@ const ShopItem: FC<{ item: Product }> = (props) => (
   </Card>
 
 )
+  }
 
 
-interface ProductProps { }
-
-const Product: FC<ProductProps> = () => (
-  <ProductList />
-);
 
 export default Product;

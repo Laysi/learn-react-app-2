@@ -24,13 +24,13 @@ const AppRoutes: React.FC = () => (
                 <Route path="notify" element={<NotifyPage />} />
             </Route>
             <Route path="/productBrowsing" element={<ProductBrowsingPage />}/>
-            <Route path="productDetails" element={<ProductDetailsPage />} />
+            <Route path="/productDetails/:id" element={<ProductDetailsPage />} />
             <Route path="/connection" element={<ConnectionPage />} />
             <Route path="/shoppingCart" element={<ShoppingCartPage />} />
-            <Route path="store" element={<StorePage />} />
-            <Route path="pickupPerson" element={<PickupPage />} />
-            <Route path="payment" element={<PaymentPage />} />
-            <Route path="completed" element={<CompletedPage />} />
+            <Route path="/store" element={<StorePage />} />
+            <Route path="/pickupPerson" element={<PickupPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/completed" element={<CompletedPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
