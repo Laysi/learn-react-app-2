@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './ProductDetailsPage.scss';
 import { useNavigate } from 'react-router-dom';
-import { Grid, AppBar, Toolbar, IconButton, InputBase, Box, Link as MuiLink, Container, Stack, Typography, Button, Chip, TextField } from '@mui/material';
+import { Grid, AppBar, Toolbar, IconButton, InputBase, Box, Link as MuiLink, Container, Stack, Typography, Button, Chip, TextField, Divider } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 interface ProductDetailsPageProps { }
@@ -41,23 +41,23 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => (
             <Stack direction='row'>
               <Typography variant='h5' fontWeight='bold' sx={{ my: 1, color: 'red', }}>$300 - $1200</Typography>
             </Stack>
-            <Stack direction='row' spacing={2} sx={{my:1}}>
+            <Stack direction='row' spacing={2} sx={{ my: 1 }}>
               <Typography variant='h6' fontWeight='bold' sx={{ mr: 1 }}>規格</Typography>
               <Chip label='原版'></Chip>
               <Chip label='冰原'></Chip>
             </Stack>
-            <Stack direction='row' spacing={2} sx={{my:1}}>
+            <Stack direction='row' spacing={2} sx={{ my: 1 }}>
               <Typography variant='h6' fontWeight='bold' sx={{ mr: 1 }}>運送</Typography>
               <Chip label='全家'></Chip>
               <Chip label='萊爾富'></Chip>
             </Stack>
-            <Stack direction='row' sx={{my:1}}>
+            <Stack direction='row' sx={{ my: 1 }}>
               <Typography variant='h6' fontWeight='bold' sx={{ mr: 1 }}>運費</Typography>
               <Typography variant='h6' >$60</Typography>
             </Stack>
-            <Stack direction='row' sx={{my:1}}>
+            <Stack direction='row' sx={{ my: 1 }}>
               <Typography variant='h6' fontWeight='bold' sx={{ mr: 1 }}>購買數量</Typography>
-              <TextField  size='small' defaultValue='1' label='數量'/>
+              <TextField size='small' defaultValue='1' label='數量' />
               <IconButton aria-label='add' color='primary'>
                 <AddIcon />
               </IconButton>
@@ -72,8 +72,40 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => (
           </Stack>
         </Grid>
       </Grid>
+
+      <Grid container>
+        <Grid item xs={12}>
+          <Stack direction='column' sx={{ bgcolor: 'lightgray', alignItems: 'start', p: 2, textAlign: 'start' }}>
+            <Typography variant="h6" color="inherit">
+              商品規格
+            </Typography>
+            <Divider flexItem sx={{ my: 2 }} ></Divider>
+            <Stack direction='row'>
+              <Typography variant="body1" sx={{ minWidth: 100 }} fontWeight='bold'>
+                商品數量:
+              </Typography>
+              <Typography variant="body1" >404</Typography>
+            </Stack>
+            <Stack direction='row'>
+              <Typography variant="body1" sx={{ minWidth: 100 }} fontWeight='bold'>
+                產地:
+              </Typography>
+              <Typography variant="body1" >台灣</Typography>
+            </Stack>
+            <Stack direction='row'>
+              <Typography variant="body1" sx={{ minWidth: 100 }} fontWeight='bold'>
+                產品資訊:
+              </Typography>
+              <Typography variant="body1" >這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品</Typography>
+            </Stack>
+          </Stack>
+
+        </Grid>
+
+      </Grid>
     </Stack>
   </Container>
+
 );
 
 export default ProductDetailsPage;
