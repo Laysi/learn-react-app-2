@@ -23,7 +23,7 @@ const AppRoutes: React.FC = () => (
                 <Route path="historicalOrders" element={<HistoricalOrdersPage />} />
                 <Route path="notify" element={<NotifyPage />} />
             </Route>
-            <Route path="/productBrowsing" element={<ProductBrowsingPage />}/>
+            <Route path="/productBrowsing/:search" element={<ProductBrowsingPage />}/>
             <Route path="/productDetails/:id" element={<ProductDetailsPage />} />
             <Route path="/connection" element={<ConnectionPage />} />
             <Route path="/shoppingCart" element={<ShoppingCartPage />} />
