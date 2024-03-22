@@ -19,7 +19,7 @@ export interface ApiService {
   listLocation(): Promise<PickupLocation[]>;
 }
 
-interface User {
+export interface User {
   username: string;
   email: string;
   name: string;
