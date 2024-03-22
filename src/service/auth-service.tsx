@@ -23,9 +23,14 @@ export const AuthServiceProvider:FC<{children?:ReactNode}> = ({children})=>{
     const baseApi=useApi();
 
     async function login(username:string,password:string):Promise<void>{
-
+        const mockApi = new api.MockApi();
+        let user= await mockApi.login(username,password);
+        setUser(user);
+        navigate('/');
     }
     async function logout():Promise<void>{
+        const mockApi = new api.MockApi();
+        await mockApi.logout();
         setUser(null);
         return;
     }
@@ -38,4 +43,8 @@ export const AuthServiceProvider:FC<{children?:ReactNode}> = ({children})=>{
 };
 
 
+
+function useApi() {
+    throw new Error('Function not implemented.');
+}
 
