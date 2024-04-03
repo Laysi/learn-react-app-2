@@ -9,6 +9,7 @@ export interface ApiService {
   listNotify(): Promise<Notification[]>;
 
   listProduct(): Promise<Product[]>;
+  getProductById(id: number): Promise<Product | undefined>;
 
   listOrder(): Promise<Order[]>;
   placeOrder(
@@ -199,10 +200,15 @@ export class MockApi implements ApiService {
     return this.productList;
   }
 
+
+  async getProductById(id: number): Promise<Product | undefined> {
+    return this.productList.find(p => p.id === id);
+  }
+
   async listOrder(): Promise<Order[]> {
     return this.orderList;
   }
-  
+
   async placeOrder(items: OrderProduct[], transportation: Transportation): Promise<Order> {
     let order: Order = {
       id: this.orderList.length,
