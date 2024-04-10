@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './ProductDetailsPage.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Grid, AppBar, Toolbar, IconButton, InputBase, Box, Link as MuiLink, Container, Stack, Typography, Button, Chip, TextField, Divider } from '@mui/material';
@@ -15,8 +15,8 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => {
   useEffect(() => {
     async function getData() {
       if (id === undefined) return;
-      let data = await api.getProductById(parseInt(id));
-      setData(data);
+      let dataProduct = await api.getProductById(parseInt(id));
+      setData(dataProduct);
     }
     getData();
   },[]);
@@ -27,17 +27,17 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => {
           <Grid item xs={6}>
             <Stack direction='column'>
               <Box>
-                <img src="https://picsum.photos/400/250" alt='product' />
+                <img src={data?.coverUrl} alt='product' />
               </Box>
               <Stack direction='row'>
                 <Box sx={{ p: 1 }}>
-                  <img src="https://picsum.photos/120" alt='product' />
+                  <img src={data?.coverUrl} alt='product' />
                 </Box>
                 <Box sx={{ p: 1 }}>
-                  <img src="https://picsum.photos/120" alt='product' />
+                  <img src={data?.coverUrl} alt='product' />
                 </Box>
                 <Box sx={{ p: 1 }}>
-                  <img src="https://picsum.photos/120" alt='product' />
+                  <img src={data?.coverUrl} alt='product' />
                 </Box>
               </Stack>
             </Stack>
@@ -46,14 +46,14 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => {
           <Grid item xs={6} sx={{ P: 1 }}>
             <Stack direction='column'>
               <Stack direction='row'>
-                <Typography variant='h5' fontWeight='bold'>{data.name}</Typography>
+                <Typography variant='h5' fontWeight='bold'>{data?.name}</Typography>
               </Stack>
               <Stack direction='row'>
                 <Typography variant='body2' fontWeight='bold' sx={{ mr: 1 }}>2</Typography>
                 <Typography variant='body2' color='gray'>已售出</Typography>
               </Stack>
               <Stack direction='row'>
-                <Typography variant='h5' fontWeight='bold' sx={{ my: 1, color: 'red', }}>{data.price}</Typography>
+                <Typography variant='h5' fontWeight='bold' sx={{ my: 1, color: 'red', }}>{data?.price}</Typography>
               </Stack>
               <Stack direction='row' spacing={2} sx={{ my: 1 }}>
                 <Typography variant='h6' fontWeight='bold' sx={{ mr: 1 }}>規格</Typography>
@@ -110,7 +110,7 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => {
                 <Typography variant="body1" sx={{ minWidth: 100 }} fontWeight='bold'>
                   產品資訊:
                 </Typography>
-                <Typography variant="body1" >{data.direction}</Typography>
+                <Typography variant="body1" >{data?.description}</Typography>
               </Stack>
             </Stack>
 
@@ -124,7 +124,5 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => {
 };
 
 export default ProductDetailsPage;
-function useState<T>(): [any, any] {
-  throw new Error('Function not implemented.');
-}
+
 
