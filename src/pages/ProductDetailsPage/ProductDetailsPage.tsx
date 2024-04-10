@@ -46,14 +46,14 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => {
           <Grid item xs={6} sx={{ P: 1 }}>
             <Stack direction='column'>
               <Stack direction='row'>
-                <Typography variant='h5' fontWeight='bold'></Typography>
+                <Typography variant='h5' fontWeight='bold'>{data.name}</Typography>
               </Stack>
               <Stack direction='row'>
                 <Typography variant='body2' fontWeight='bold' sx={{ mr: 1 }}>2</Typography>
                 <Typography variant='body2' color='gray'>已售出</Typography>
               </Stack>
               <Stack direction='row'>
-                <Typography variant='h5' fontWeight='bold' sx={{ my: 1, color: 'red', }}>$300 - $1200</Typography>
+                <Typography variant='h5' fontWeight='bold' sx={{ my: 1, color: 'red', }}>{data.price}</Typography>
               </Stack>
               <Stack direction='row' spacing={2} sx={{ my: 1 }}>
                 <Typography variant='h6' fontWeight='bold' sx={{ mr: 1 }}>規格</Typography>
@@ -110,7 +110,7 @@ const ProductDetailsPage: FC<ProductDetailsPageProps> = () => {
                 <Typography variant="body1" sx={{ minWidth: 100 }} fontWeight='bold'>
                   產品資訊:
                 </Typography>
-                <Typography variant="body1" >這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品這是一個商品</Typography>
+                <Typography variant="body1" >{data.direction}</Typography>
               </Stack>
             </Stack>
 
