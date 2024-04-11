@@ -93,7 +93,7 @@ export class MockApi implements ApiService {
     this.notifyList = this.generateNotificationData(faker.number.int({ min: 30, max: 50 }));
     this.productList = this.generateProductData(faker.number.int({ min: 30, max: 50 }));
     this.orderList = this.generateOrderData(faker.number.int({ min: 30, max: 50 }), this.productList);
-    this.locationList = this.generatePickLocationData(faker.number.int({ min: 30, max: 50 }))
+    this.locationList = this.generatePickLocationData(faker.number.int({ min: 1000, max: 2000 }))
   }
 
   private generateNotificationData(amount: number): Notification[] {
@@ -179,9 +179,9 @@ export class MockApi implements ApiService {
       let number = faker.location.buildingNumber();
       items.push({
         address: [city, street, number, '號'].join(' '),
-        city: faker.location.city(),
+        city: city,
         name: `${city}${street}店`,
-        type: faker.helpers.arrayElement(['familymart', 'familymart']),
+        type: faker.helpers.arrayElement(['familymart', 'hilife']),
       })
     }
     return items;
