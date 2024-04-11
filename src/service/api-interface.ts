@@ -1,4 +1,5 @@
-import { faker } from "@faker-js/faker";
+import { Faker, zh_TW, base, en, es } from '@faker-js/faker';
+let faker = new Faker({ locale: [zh_TW, es, en, base] });
 
 //API
 export interface ApiService {
@@ -86,11 +87,13 @@ export class MockApi implements ApiService {
   private notifyList: Notification[];
   private productList: Product[];
   private orderList: Order[];
+  private locationList: PickupLocation[];
 
   constructor() {
-    this.notifyList = this.generateNotificationData(30);
-    this.productList = this.generateProductData(30);
-    this.orderList = this.generateOrderData(30, this.productList);
+    this.notifyList = this.generateNotificationData(faker.number.int({ min: 30, max: 50 }));
+    this.productList = this.generateProductData(faker.number.int({ min: 30, max: 50 }));
+    this.orderList = this.generateOrderData(faker.number.int({ min: 30, max: 50 }), this.productList);
+    this.locationList = this.generatePickLocationData(faker.number.int({ min: 30, max: 50 }))
   }
 
   private generateNotificationData(amount: number): Notification[] {
@@ -168,18 +171,36 @@ export class MockApi implements ApiService {
     }
     return items;
   }
+  private generatePickLocationData(amount: number): PickupLocation[] {
+    const items: PickupLocation[] = [];
+    for (let i = 0; i < amount; i++) {
+      let city = faker.location.city();
+      let street = faker.location.street();
+      let number = faker.location.buildingNumber();
+      items.push({
+        address: [city, street, number, '號'].join(' '),
+        city: faker.location.city(),
+        name: `${city}${street}店`,
+        type: faker.helpers.arrayElement(['familymart', 'familymart']),
+      })
+    }
+    return items;
+  }
 
 
   async login(username: string, password: string): Promise<User> {
+    await waitRandom();
     this.user = { username: username, name: username, email: 'test@test.test' };
     return this.user;
   }
 
   async logout(): Promise<void> {
+    await waitRandom();
     this.user = null;
   }
 
   async getUserProfile(): Promise<UserProfile> {
+    await waitRandom();
     if (this.user == null) {
       return Promise.reject("user not login");
     }
@@ -193,23 +214,28 @@ export class MockApi implements ApiService {
   }
 
   async listNotify(): Promise<Notification[]> {
+    await waitRandom();
     return this.notifyList;
   }
 
   async listProduct(): Promise<Product[]> {
+    await waitRandom();
     return this.productList;
   }
 
 
   async getProductById(id: number): Promise<Product | undefined> {
+    await waitRandom();
     return this.productList.find(p => p.id === id - 1);
   }
 
   async listOrder(): Promise<Order[]> {
+    await waitRandom();
     return this.orderList;
   }
 
   async placeOrder(items: OrderProduct[], transportation: Transportation): Promise<Order> {
+    await waitRandom();
     let order: Order = {
       id: this.orderList.length,
       createdAt: new Date(),
@@ -221,11 +247,23 @@ export class MockApi implements ApiService {
     return order;
   }
   async listLocation(): Promise<PickupLocation[]> {
-    return [];
+    await waitRandom();
+    return this.locationList;
   }
+}
+
+async function waitRandom(): Promise<void> {
+  return wait(faker.number.int({ min: 500, max: 2000 }));
+}
+
+async function wait(ms: number): Promise<void> {
+  return new Promise((resolve, _) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 //Cart Service
 export interface Cart {
   items: OrderProduct[];
 }
+
