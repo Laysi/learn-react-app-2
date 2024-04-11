@@ -202,7 +202,7 @@ export class MockApi implements ApiService {
 
 
   async getProductById(id: number): Promise<Product | undefined> {
-    return this.productList.find(p => p.id === id);
+    return this.productList.find(p => p.id === id - 1);
   }
 
   async listOrder(): Promise<Order[]> {
